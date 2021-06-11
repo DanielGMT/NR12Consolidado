@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<h3>Cliente</h3>
+		<!-- <form name="form" novalidate> -->
+			<div class="row">
+				<div class="form-group col-md-12" ng-class="{'has-error': form.cliente.$invalid && !form.cliente.$pristine}">
+					<label class="control-label" for="cliente">Empresa *</label>
+					<select ng-model="controller.clienteSelecionado" name="cliente" id="cliente" class="form-control"
+					ng-options="cliente.id as cliente.nome for cliente in controller.clientes"
+					ng-change="controller.buscaMaquina()" required validate>
+						<option value="">Selecione uma opção</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12"  ng-class="{'has-error': form.maquina.$invalid && !form.maquina.$pristine}">
+					<label class="control-label" for="maquina">Maquina *</label>
+					<select ng-model="controller.laudo.maquinaId" name="maquina" id="maquina" class="form-control" ng-options="maquina.id as maquina.nome for maquina in controller.maquinas" required validate>
+						<option value="">Selecione uma opção</option>
+					</select>
+				</div>
+			</div>
+			<br>
+		</div>
+</div>

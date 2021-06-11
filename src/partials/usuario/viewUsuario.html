@@ -1,0 +1,39 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h2 class="page-header">Visualizar Usuario</h2>
+	<div class="tab-content">
+		<div class="row">
+			<div class="col-md-12">
+				<p><strong>Nome</strong></p>
+				<p>{{controller.usuario.nome}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p><strong>Email</strong></p>
+				<p>{{controller.usuario.email}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p><strong>Cargo</strong></p>
+				<p>{{controller.usuario.cargo}}</p>
+			</div>
+			<div class="col-md-4">
+				<p><strong>Habilitação</strong></p>
+				<p>{{controller.usuario.habilitacao}}</p>
+			</div>
+			<div class="col-md-4">
+				<p><strong>Crea</strong></p>
+				<p>{{controller.usuario.crea}}</p>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<a ng-href="#/usuario/{{controller.usuario.id}}" class="btn btn-warning">Editar</a>
+				<button ng-click="remove(controller.usuario)" class="btn btn-danger">Excluir</button>
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</div>
+</div>

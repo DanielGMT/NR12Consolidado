@@ -1,0 +1,65 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Usuario</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+
+		<div class="row">
+			<!-- Nome -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.nome.$invalid && !form.nome.$pristine}">
+				<label class="control-label" for="nome">Nome *</label>
+				<input type="text" class="form-control" name="nome" id="nome"
+					   ng-model="controller.usuario.nome" ng-minlength="3" ng-maxlength="45" required validate />
+			</div>
+		</div>
+		<div class="row">
+			<!-- Email -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.email.$invalid && !form.email.$pristine}">
+				<label class="control-label" for="email">E-mail *</label>
+				<input type="email" class="form-control" name="email" id="email"
+					   ng-model="controller.usuario.email" ng-maxlength="45" required validate />
+			</div>
+		</div>
+		<div class="row">
+			<!-- Cargo -->
+			<div class="form-group col-md-4" ng-class="{'has-error': form.cargo.$invalid && !form.cargo.$pristine}">
+				<label class="control-label">Cargo *</label>
+				<div class="radio">
+					<label class="control-label" >
+						<input class="form-check-input" type="radio" name="cargo"
+							   ng-model="controller.usuario.cargo" value="Consultor" required validate />
+						Consultor
+					</label>
+				</div>
+				<div class="radio">
+					<label class="control-label">
+						<input class="form-check-input" type="radio" name="cargo"
+							   ng-model="controller.usuario.cargo" value="Responsável Técnico" required validate />
+						Responsavel Técnico
+					</label>
+				</div>
+			</div>
+			<!-- Habilitação -->
+			<div class="form-group col-md-4" ng-class="{'has-error': form.habilitacao.$invalid && !form.habilitacao.$pristine}">
+				<label class="control-label" for="habilitacao">Habilitação</label>
+				<input type="habilitacao" class="form-control" name="habilitacao" id="habilitacao"
+					   ng-model="controller.usuario.habilitacao" ng-minlength="3" ng-maxlength="45"
+					   ng-required="controller.usuario.cargo == 'Responsável Técnico'" validate />
+			</div>
+			<!-- Crea -->
+			<div class="form-group col-md-4" ng-class="{'has-error': form.crea.$invalid && !form.crea.$pristine}">
+				<label class="control-label" for="crea">Crea</label>
+				<input type="crea" class="form-control" name="crea" id="crea"
+					   ng-model="controller.usuario.crea" ng-minlength="3" ng-maxlength="15" validate />
+			</div>
+		</div>
+
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

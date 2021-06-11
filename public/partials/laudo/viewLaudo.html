@@ -1,0 +1,58 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h2 class="page-header">Visualizar Cliente</h2>
+	<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+	<div class="tab-content">
+		<div class="row">
+			<div class="col-md-4">
+				<p><strong>CNPJ</strong></p>
+				<p ng-model="cliente.cnpj" ui-mask='99.999.999/9999-99'></p>
+			</div>
+			<div class="col-md-8">
+				<p><strong>Empresa</strong></p>
+				<p ng-model="cliente.empresa"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				<p><strong>Endereço</strong></p>
+				<p ng-model="cliente.endereco"></p>
+			</div>
+			<div class="col-md-3">
+				<p><strong>Numero</strong></p>
+				<p ng-model="cliente.numero"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-7">
+				<p><strong>Cidade</strong></p>
+				<p ng-model="cliente.cidade"></p>
+			</div>
+			<div class="col-md-2">
+				<p><strong>Estado</strong></p>
+				<p ng-model="cliente.estado"></p>
+			</div>
+			<div class="col-md-3">
+				<p><strong>CEP</strong></p>
+				<p ng-model="cliente.cep"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<p><strong>Telefone</strong></p>
+				<p ng-model="cliente.telefone"></p>
+			</div>
+			<div class="col-md-9">
+				<p><strong>E-mail</strong></p>
+				<p ng-model="cliente.email"></p>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<a ng-href="#/cliente/{{cliente._id}}" class="btn btn-warning">Editar</a>
+				<button ng-click="remove(cliente)" class="btn btn-danger">Excluir</button>
+				<a href="#/clientes" class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</div>
+</div>

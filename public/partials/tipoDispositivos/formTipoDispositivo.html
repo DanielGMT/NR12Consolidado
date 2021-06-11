@@ -1,0 +1,21 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Tipo Dipositivo</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<!-- Tipo Dispositivo -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.tipo.$invalid && !form.tipo.$pristine}">
+				<label class="control-label" for="tipoDispositivo">Tipo Dispositivo *</label>
+				<input type="text" class="form-control" name="tipo" id="tipo" autocomplete="off" ng-model="controller.tipoDispositivo.tipo" ng-minlength="2" ng-maxlength="50" required validate/>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,97 @@
+<div class="col-sm-12 ">
+	<h1 class="page-header">Cliente</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<div class="tab-fotos col-sm-4">
+				<div class="row">
+					<div class="form-group col-md-12">
+						<div class="thumbnail">
+							<img ng-src="{{controller.cliente.imagem.show}}" alt="Logo" style="height:200px">
+						</div>
+						<label class="control-label" for="imagem">Logo do cliente</label>
+						<div class="input-group">
+							<input file-input="imagem" type="file" name="imagem" id="imagem" ng-disabled="selImagem" class="form-control">
+							<span class="input-group-btn">
+								<button ng-click="controller.upload('imagem')" type="button" ng-disabled="btnImagem" class="btn btn-primary">
+									<i class="glyphicon glyphicon-upload"></i>
+									<span>Upload</span>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-content col-sm-8">
+				<div class="row">
+					<!-- CNPJ -->
+					<div class="form-group col-md-4" ng-class="{'has-error': form.cnpj.$invalid && !form.cnpj.$pristine}">
+						<label class="control-label" for="cnpj">CNPJ *</label>
+						<input type="text" class="form-control" name="cnpj" id="cnpj" ng-model="controller.cliente.cnpj" ui-mask='99.999.999/9999-99' required validate ng-cnpj />
+					</div>
+					<!-- Empresa -->
+					<div class="form-group col-md-8" ng-class="{'has-error': form.nome.$invalid && !form.nome.$pristine}">
+						<label class="control-label" for="nome">Empresa *</label>
+						<input type="text" class="form-control" name="nome" id="nome" ng-model="controller.cliente.nome" ng-minlength="3" ng-maxlength="45" required validate />
+					</div>
+				</div>
+				<div class="row">
+					<!-- Endereço -->
+					<div class="form-group col-md-9" ng-class="{'has-error': form.endereco.$invalid && !form.endereco.$pristine}">
+						<label class="control-label" for="endereco">Endereco</label>
+						<input type="text" class="form-control" name="endereco" id="endereco" ng-model="controller.cliente.endereco" ng-maxlength="60" validate />
+					</div>
+					<!-- Numero -->
+					<div class="form-group col-md-3" ng-class="{'has-error': form.numero.$invalid && !form.numero.$pristine}">
+						<label class="control-label" for="numero">Numero</label>
+						<input type="number" class="form-control" name="numero" id="numero" min="0" ng-model="controller.cliente.numero" />
+					</div>
+				</div>
+				<div class="row">
+					<!-- Estado -->
+					<div class="form-group col-md-2" ng-class="{'has-error': form.estado.$invalid && !form.estado.$pristine}">
+						<label class="control-label" class="control-label" for="estado">Estado *</label>
+						<input type="text" class="form-control uppercase" name="estado" id="estado" ng-model="controller.cliente.estado" {{str | uppercase}} ng-minlength="2" maxlength="2" validate />
+					</div>
+					<!-- Cidade -->
+					<div class="form-group col-md-4" ng-class="{'has-error': form.cidade.$invalid && !form.cidade.$pristine}">
+						<label class="control-label" for="cidade">Cidade *</label>
+						<input type="text" class="form-control" name="cidade" id="cidade" ng-model="controller.cliente.cidade" ng-minlength="3" ng-maxlength="45" required validate/>
+					</div>
+					<!-- Bairro -->
+					<div class="form-group col-md-3">
+						<label class="control-label" for="bairro">Bairro</label>
+						<input type="text" class="form-control" name="bairro" id="bairro" ng-model="controller.cliente.bairro" />
+					</div>
+					<!-- CEP -->
+					<div class="form-group col-md-3">
+						<label class="control-label" for="cep">CEP</label>
+						<input type="text" class="form-control" name="cep" id="cep" ng-model="controller.cliente.cep" ui-mask='99.999-999'  />
+					</div>
+				</div>
+				<div class="row">
+					<!-- Telefone -->
+					<div class="form-group col-md-3">
+						<label class="control-label" for="telefone">Telefone</label>
+						<input type="tel" class="form-control" name="telefone" id="telefone" ng-model="controller.cliente.telefone" ui-mask='(99)9999-9999?9' />
+						</div>
+					<!-- Email -->
+					<div class="form-group col-md-9">
+						<label class="control-label" for="email">E-mail</label>
+						<input type="email" class="form-control" name="email" id="email" ng-model="controller.cliente.email" ng-maxlength="60" validate />
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12 text-center">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</br>
+
+</div>

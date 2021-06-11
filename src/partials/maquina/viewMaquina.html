@@ -1,0 +1,97 @@
+<div class="col-sm-12">
+	<h2 class="page-header">Visualizar Máquina</h2>
+	<div class="row">
+		<div class="tab-fotos col-sm-4">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="thumbnail">
+						<img ng-src="{{controller.maquina.fotofront.show}}" alt="Foto Frontal" >
+						<p>Foto Frontal</p>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="thumbnail">
+						<img ng-src="{{controller.maquina.fotole.show}}" alt="Foto Lateral Esquerda" >
+						<p>Foto Lateral Esquerda</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="thumbnail">
+						<img ng-src="{{controller.maquina.fotold.show}}" alt="Foto Lateral Direita" >
+						<p>Foto Lateral Direita</p>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="thumbnail">
+						<img ng-src="{{controller.maquina.fotopost.show}}" alt="Foto Posterior" >
+						<p>Foto Posterior</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content col-sm-8">
+			<div class="row">
+				<div class="col-md-12">
+					<p><strong>Empresa</strong></p>
+					<p>{{controller.maquina.cliente.nome}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<p><strong>Nome</strong></p>
+					<p>{{controller.maquina.nome}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p><strong>Tipo Máquina</strong></p>
+					<p>{{controller.maquina.tipoMaquina.nome}}</p>
+				</div>
+				<div class="col-md-6">
+					<p><strong>Modelo</strong></p>
+					<p>{{controller.maquina.modelo}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p><strong>Número Série</strong></p>
+					<p>{{controller.maquina.numeroSerie}}</p>
+				</div>
+				<div class="col-md-6">
+					<p><strong>Número Patrimônio</strong></p>
+					<p>{{controller.maquina.numeroPatrimonio}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p><strong>Capacidade</strong></p>
+					<p>{{controller.maquina.capacidade}}</p>
+				</div>
+				<div class="col-md-6">
+					<p><strong>Setor</strong></p>
+					<p>{{controller.maquina.setor}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p><strong>Fabricante</strong></p>
+					<p>{{controller.maquina.fabricante}}</p>
+				</div>
+				<div class="col-md-6">
+					<p><strong>Ano</strong></p>
+					<p>{{controller.maquina.ano}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div id="actions" class="row">
+		<div class="col-md-12 text-center">
+			<a ng-href="#/maquina/{{controller.maquina.id}}" class="btn btn-warning">Editar</a>
+			<button ng-click="controller.remove(maquina)" class="btn btn-danger">Excluir</button>
+			<a back class="btn btn-default">Voltar</a>
+		</div>
+	</div>
+</div>

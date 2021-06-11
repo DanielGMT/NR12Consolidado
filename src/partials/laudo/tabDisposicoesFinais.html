@@ -1,0 +1,9 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h3>Disposições Finais</h3>
+	<div class="row">
+		<div class="form-group col-md-12" ng-class="{'has-error': form.disposicaoFinal.$invalid && !form.disposicaoFinal.$pristine}">
+			<label class="control-label" for="disposicaoFinal">Descrição *</label>
+			<textarea class="form-control" rows="8" cols="5" name="disposicaoFinal" id="disposicaoFinal" ng-model="controller.laudo.disposicaoFinal" ng-minlength="3" required validate></textarea>
+		</div>
+	</div>
+</div>

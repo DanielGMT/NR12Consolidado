@@ -1,0 +1,37 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Responsábilidade Técnica</h1>
+	<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
+	<form ng-submit="controller.altera()" name="form" novalidate>
+		<div class="row">
+			<!-- Descrição -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.descricao.$invalid && !form.descricao.$pristine}">
+				<label class="control-label" for="descricao">Descrição *</label>
+				<textarea class="form-control" rows="8" cols="5" name="descricao"
+				ng-minlength="6" ng-model="controller.respTecnica.resptecnica" required></textarea>
+				<div ng-messages="form.descricao.$error" ng-if="!form.descricao.$pristine">
+					<div ng-message="required">O texto da descricao deve ser preenchido</div>
+					<div ng-message="minlength">O texto da descricao esta curto </div>
+					<div ng-messages-include="partials/validate/messages.html"></div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Utilize as seguintes tags para substituir pelos valores correspondentes:</p>
+				<p>&#60;&#60;APROVADOR&#62;&#62;
+&#60;&#60;EMPRESA&#62;&#62;
+&#60;&#60;MAQUINA&#62;&#62;</p>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,79 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Perigo</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<!-- Perigo -->
+			<div class="form-group col-md-9" ng-class="{'has-error': form.nome.$invalid && !form.nome.$pristine}">
+				<label class="control-label" for="nome" id="nome">Perigo *</label>
+				<input type="text" class="form-control" name="nome"   
+					   ng-model="controller.perigo.nome" ng-minlength="3" ng-maxlength="45" required validate/>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Descrição -->
+			<div class="form-group col-md-9" ng-class="{'has-error': form.descricao.$invalid && !form.descricao.$pristine}">
+				<label class="control-label" for="descricao">Descrição </label>
+				<textarea class="form-control" rows="4" cols="5" name="descricao"
+						  ng-model="controller.perigo.descricao" ng-minlength="3" ng-maxlength="500" validate>
+				</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Riscos -->
+			<div class="form-group col-md-9">
+				<label class="control-label" for="risco">Riscos</label>
+				<div class="input-group">
+					<select class="form-control" name="selecionaRisco" ng-model="controller.riscoSelecionado"
+					 ng-options="risco as risco.nome for risco in controller.riscosDisponiveis track by risco.id" ng-change="controller.changeRisco()">
+						<option value="">Selecione uma opção</option>
+					</select>
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-class="{'btn-default':!controller.riscoSelecionado, 'btn-success':controller.riscoSelecionado}" ng-click="controller.adicionaRisco()" ng-disabled="controller.btnIncluirRisco" >
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Lista Riscos -->
+			<div class="table-responsive col-md-9">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+						<th>Risco</th>
+						<th>Ações</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="risco in controller.riscosInseridos">
+							<td>{{risco.nome}}</td>
+							<td class="actions">
+								<button type="button" ng-click="controller.removeRiscoInserido(risco)"  class="btn btn-danger btn-xs" title="Excluir">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<p ng-show="controller.riscosInseridos.length">Risco cadastrados: {{controller.riscosInseridos.length}}</p>
+								<p class="text-info" ng-hide="controller.riscosInseridos.length">Não há riscos cadastrados</p>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a href="#/perigos" class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

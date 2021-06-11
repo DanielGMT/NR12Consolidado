@@ -1,0 +1,84 @@
+
+
+        <!-- Font Awesome CSS -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+
+       <link href="css/animate.css" rel="stylesheet">
+
+        <link href="css/animate.css" rel="stylesheet">
+
+
+        <link href="css/home.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- Custom Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <section id="logo-section" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo text-center">
+                            <h1></h1>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mainbody-section text-center">
+            <div class="container">
+                <div class="col-md-3">
+                   <div class="panel ">
+  				   <div class="panel-heading senai-panel-color senai-font-color"><strong>Central de Notificacoes</strong></div>
+  				   <div class="panel-body">
+    				<p ng-repeat="informativo in controller.informativos">{{informativo.texto}}</p>
+  				   </div>
+				   </div>
+				</div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                <div class="row">
+                	<div class="col-md-4">
+                        <div class="menu-item blue">
+
+                            <a title="Normas" ng-href="#/itens" >
+
+                                <i class="fa fa-book"></i>
+                                <p>Normas</p>
+                            </a>
+                        </div>
+                        <div class="menu-item green">
+                            <a title="Laudos" ng-href="#/laudos">
+                                <i class="fa fa-files-o"></i>
+                                <p>Laudos</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="menu-item color responsive">
+                                    <a title="Clientes" ng-href="#/clientes">
+                                        <i class="fa fa-building-o"></i>
+                                        <p>Clientes</p>
+                                    </a>
+                                </div>
+                                 <div class="menu-item light-orange responsive-2">
+                                    <a title="Equipes" ng-href="#/maquinas">
+                                        <i class="fa fa-cogs"></i>
+                                        <p>Máquinas</p>
+                                    </a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>

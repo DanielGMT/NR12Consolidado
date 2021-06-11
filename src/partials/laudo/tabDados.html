@@ -1,0 +1,24 @@
+<div class="col-sm-8 col-sm-offset-2" >
+	<h3>Dados do Laudo</h3>
+	<div class="row">
+		<div class="form-group col-md-4">
+			<label class="control-label" for="codigo">Codigo</label>
+			<input type="text" class="form-control" name="codigo" readonly="true"
+			ng-model="controller.laudo.codigo" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-4" >
+			<label class="control-label" for="data_inicial">Data Inicial</label>
+			<input type="text" class="form-control" name="data_inicial" readonly="true"
+			 value="{{controller.laudo.data_inicial | date:'dd/MM/yyyy':'+0300'}}" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-4">
+			<label class="control-label" for="data_final">Data Final</label>
+			<input type="text" class="form-control" name="data_final" readonly="true"
+			value="{{controller.laudo.data_final | date:'dd/MM/yyyy':'+0300'}}" />
+		</div>
+	</div>
+</div>

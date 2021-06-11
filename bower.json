@@ -1,0 +1,38 @@
+{
+  "name": "projetonr12",
+  "description": "Projeto NR12 Senai",
+  "main": "server.js",
+  "authors": [
+    "Guilherme Stegemann <guilherme.stegemann@gmail.com>",
+    "Fabiano Borchardt <fabianobdt@gmail.com>",
+    "Rodrigo Marques <marks.senai@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0",
+    "angular-route": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "angular-ui-utils": "^3.0.0",
+    "bootbox.js": "bootbox#^4.4.0",
+    "angular-messages": "^1.5.8",
+    "AngularJS-Toaster": "angularjs-toaster#^2.0.0",
+    "ng-cpf-cnpj": "^0.0.5",
+    "ngstorage": "^0.3.11",
+    "angular-base64": "^2.0.5",
+    "checklist-model": "^0.11.0",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

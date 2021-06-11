@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Projeto NR12" />
+		<meta charset="UTF-8">
+		<title>Projeto NR12</title>
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap-select/dist/css/bootstrap-select.css">
+		<link rel="stylesheet" type="text/css" href="vendor/AngularJS-Toaster/toaster.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="shortcut icon" href="http://sc.senai.br/sites/default/files/favicon.ico" type="image/vnd.microsoft.icon" />
+	</head>
+	<body>
+		<div id="header">
+
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+			<!-- <nav class="navbar navbar-fixed-top"> -->
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#"><img src="imagens/sesi_logo.png" height = "25" alt="SESI" class="mr-2 mb-1" data-pagespeed-url-hash="3069610550" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+						</div>
+					<div  id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-left">
+							<li><a ng-href="#/">Home</a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown">Cadastro<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a title="Capacitação" ng-href="#/capacitacoes">Capacitação</a></li>
+									<li><a title="Norma Regulamentadora" ng-href="#/itens">Norma Regulamentadora</a></li>
+									<li><a title="Normas Técnicas" ng-href="#/normasTecnicas">Normas Técnicas</a></li>
+									<li><a title="Perigo" ng-href="#/perigos">Perigo</a></li>
+									<li><a title="Fator de risco" ng-href="#/riscos">Fator de Risco</a></li>
+									<li><a title="Sistema de segurança" ng-href="#/sistemasSeguranca">Sistemas de segurança</a></li>
+									<li><a title="TipoMaquinas" ng-href="#/tiposMaquinas">Tipo de Máquina</a></li>
+									<li><a title="LimitesDaMaquina" ng-href="#/limitesMaquinas">Limites da Máquina</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown">Configurações<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a title="Disposições Finais" ng-href="#/disposicoesFinais">Disposições Finais</a></li>
+									<li><a title="Dispositivos" ng-href="#/dispositivos">Dispositivos</a></li>
+									<li><a title="Portarias" ng-href="#/portarias">Portarias</a></li>
+									<li><a title="Questionarios" ng-href="#/tiposDispositivos">Questionários Dispositivos</a></li>
+									<li><a title="Responsabilidade Tecnica" ng-href="#/respTecnicas">Responsabilidade Técnica</a></li>
+								</ul>
+							</li>
+							<li><a title="Clientes" ng-href="#/clientes">Clientes</a></li>
+							<li><a title="Maquina" ng-href="#/maquinas">Máquinas</a></li>
+							<li><a title="Laudos" ng-href="#/laudos">Laudos</a></li>
+
+
+						</ul>
+						
+						<ul class="nav navbar-nav navbar-right">
+							<!--<li><a ng-href="#/config"><span class="glyphicon glyphicon-cog"></span></a></li>-->
+							<li><a id="userName"></a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a title="Contas" ng-href="#/usuarios">Contas</a></li>
+									<li><a title="Alterar Senha" ng-href="#/usuario/password">Alterar Senha</a></li>
+									<li><a title="Sair" ng-href="#/login">Sair</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div ng-view class="container"></div>
+
+		<toaster-container></toaster-container>
+
+		<script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="vendor/angular/angular.js"></script>
+		<script type="text/javascript" src="vendor/angular-cookies/angular-cookies.js"></script>
+		<script type="text/javascript" src="vendor/angular-messages/angular-messages.js"></script>
+		<script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="vendor/angular-ui-mask/dist/mask.js"></script>
+		<script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script type="text/javascript" src="vendor/angular-animate/angular-animate.js"></script>
+		<script type="text/javascript" src="vendor/ngstorage/ngStorage.js"></script>
+		<script type="text/javascript" src="vendor/cpf_cnpj/build/cnpj.js"></script>
+		<script type="text/javascript" src="vendor/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+		<script type="text/javascript" src="vendor/AngularJS-Toaster/toaster.js"></script>
+		<script type="text/javascript" src="vendor/angular-base64/angular-base64.js"></script>
+		<script type="text/javascript" src="vendor/bootbox.js/bootbox.js"></script>
+		<script type="text/javascript" src="vendor/bootstrap-select/dist/js/bootstrap-select.js"></script>
+		<script type="text/javascript" src="vendor/checklist-model/checklist-model.js"></script>
+		<script type="text/javascript" src="vendor/angular-file-upload/dist/angular-file-upload.min.js"></script>
+		<script type="text/javascript" src="js/all.min.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Tipo Dipositivo - {{controller.tipoDispositivo.tipo}}</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<!-- Pergunta -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.tipo.$invalid && !form.tipo.$pristine}">
+				<label class="control-label" for="pergunta">Pergunta *</label>
+				<input type="text" class="form-control" name="pergunta" id="pergunta" autocomplete="off"
+				   ng-model="controller.pergunta.pergunta" ng-minlength="2" ng-maxlength="50" required/>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Respostas -->
+			<div class="form-group col-md-6" ng-class="{'has-error': form.respostas.$invalid}">
+				<label class="control-label" for="respostas">Alternativas *</label>
+				<div class="checkbox" ng-repeat="resposta in controller.respostas | orderBy:'id'">
+					<label>
+						<input type="checkbox" name="respostas" checklist-model="controller.pergunta.respostas" checklist-value="resposta" checklist-comparator=".id">{{resposta.resposta}}
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Resposta Correta -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.respostaCorreta.$invalid}">
+				<label class="control-label" for="respostaCorreta">Resposta Correta *</label>
+				<div class="radio" ng-repeat="resposta in controller.pergunta.respostas | orderBy:'id' track by resposta.id">
+					<label><input type="radio" ng-model="controller.pergunta.respostaCorreta" ng-value="resposta.id" name="respostaCorreta" required />{{resposta.resposta}}</label>
+				</div>
+			</div>
+		</div>
+		<!--<tt>{{controller.pergunta | json}}</tt>-->
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

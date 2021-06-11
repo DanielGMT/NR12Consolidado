@@ -1,0 +1,113 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="Projeto NR12" />
+		<meta charset="UTF-8">
+		<title>Projeto NR12</title>
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="header">
+			
+			<!-- <nav class="navbar navbar-inverse navbar-fixed-top"> -->
+			<nav class="navbar navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#"><img src="imagens/60px_senai_fiesc.png" height="25"></i></a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-left">
+							<li><a ng-href="#/"><%=home %></a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown">Cadastro<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a title="Cliente" ng-href="#/capacitacoes">Capacitação</a></li>
+									<li><a title="Cliente" ng-href="#/clientes">Cliente</a></li>
+									<li><a title="Fator de risco" ng-href="#/riscos">Risco</a></li>
+									<li><a title="Perigo" ng-href="#/perigos">Perigo</a></li>
+									<li><a title="TipoMaquinas" ng-href="#/tiposMaquinas">Tipo de Máquina</a></li>
+									<li><a title="Normas" ng-href="#/normas">Itens da Norma</a></li>
+									<li><a title="NormasTecnicas" ng-href="#/listasNorma">Normas Tecnicas</a></li>
+								</ul>
+							</li>
+							<li><a ng-href="#/laudos">Laudos</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a ng-href="#/config"><span class="glyphicon glyphicon-cog"></span></a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									
+									<li><a title="Contas" ng-href="#/Contas">Contas</a></li>
+									<li><a title="Sair" ng-href="#/sair">Sair</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div ng-view class="container"></div>
+		
+		<script type="text/javascript" src="vendor/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="vendor/angular/angular.js"></script>
+		<script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
+		<script type="text/javascript" src="vendor/angular-ui-mask/dist/mask.js"></script>
+		<script type="text/javascript" src="vendor/bootbox.js/bootbox.js"></script>
+		
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/filters.js"></script>
+		<script type="text/javascript" src="js/controllers/HomeController.js"></script>
+		<!-- Cliente -->
+		<script type="text/javascript" src="js/services/ClienteService.js"></script>
+		<script type="text/javascript" src="js/controllers/cliente/ClientesController.js"></script>
+		<script type="text/javascript" src="js/controllers/cliente/ClienteController.js"></script>
+		<!-- Risco -->
+		<script type="text/javascript" src="js/services/RiscoService.js"></script>
+		<script type="text/javascript" src="js/controllers/risco/RiscosController.js"></script>
+		<script type="text/javascript" src="js/controllers/risco/RiscoController.js"></script>
+		<!-- Perigo -->
+		<script type="text/javascript" src="js/services/PerigoService.js"></script>
+		<script type="text/javascript" src="js/controllers/perigo/PerigosController.js"></script>
+		<script type="text/javascript" src="js/controllers/perigo/PerigoController.js"></script>
+		<!--Maquina-->
+		<script type="text/javascript" src="js/services/TipoMaquinaService.js"></script>
+		<script type="text/javascript" src="js/controllers/tipoMaquina/TipoMaquinaController.js"></script>
+		<script type="text/javascript" src="js/controllers/tipoMaquina/TiposMaquinasController.js"></script>
+		<!-- Capacitacao -->
+		<script type="text/javascript" src="js/services/CapacitacaoService.js"></script>
+		<script type="text/javascript" src="js/controllers/capacitacao/CapacitacoesController.js"></script>
+		<script type="text/javascript" src="js/controllers/capacitacao/CapacitacaoController.js"></script>
+		<!--Itens Norma-->
+		<script type="text/javascript" src="js/services/NormaService.js"></script>
+		<script type="text/javascript" src="js/controllers/norma/NormaController.js"></script>
+		<script type="text/javascript" src="js/controllers/norma/NormasController.js"></script>
+		<!--Lista das Normas -->
+		<script type="text/javascript" src="js/services/ListaNormaService.js"></script>
+		<script type="text/javascript" src="js/controllers/listaNormaTecnica/ListaNormaController.js"></script>
+		<script type="text/javascript" src="js/controllers/listaNormaTecnica/ListasNormaController.js"></script>
+		<!--Usuario-->
+		<script type="text/javascript" src="js/services/UsuarioService.js"></script>
+		<script type="text/javascript" src="js/controllers/usuario/UsuarioController.js"></script>
+		<script type="text/javascript" src="js/controllers/usuario/UsuariosController.js"></script>
+		<!--Usuario-->
+		<script type="text/javascript" src="js/services/LaudoService.js"></script>
+		<script type="text/javascript" src="js/controllers/laudo/LaudoController.js"></script>
+		<script type="text/javascript" src="js/controllers/laudo/LaudosController.js"></script>
+		<!---->
+
+
+
+	</body>
+</html>

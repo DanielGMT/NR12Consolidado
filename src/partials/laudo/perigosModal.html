@@ -1,0 +1,328 @@
+<script type="text/ng-template" id="perigosModal.html">
+  <div class="modal-header">
+	<button class="close" ng-click="$ctrl.cancelarPontoPerigo()">&times;</button>
+	  <h3 class="modal-title">Ponto Perigo</h3>
+  </div>
+  <div class="modal-body">
+	<form name="formpontop" novalidate>
+		<div class="row">
+		  <div class="form-group col-md-4" ng-class="{'has-error': formpontop.pontoPerigo.$invalid && !formpontop.pontoPerigo.$pristine}">
+				<label class="control-label" for="pontoPerigo">Ponto Perigo *</label>
+				<input type="text" class="form-control"  name="pontoPerigo" id="pontoPerigo" ng-model="$ctrl.pontoPerigo.pontoperigo" required validate/>
+				</div>
+		  <div class="form-group col-md-4" ng-class="{'has-error': formpontop.face.$invalid && !formpontop.face.$pristine}">
+			<label class="control-label" for="face">Face *</label>
+			<select class="form-control" name="face" id="face" ng-model="$ctrl.pontoPerigo.face" required validate>
+			 <!-- ng-change="$ctrl.insereFace($ctrl.pontoPerigo.face);"> -->
+			  <option value="">Selecione uma opção</option>
+			  <option value="Face Frontal">Face Frontal</option>
+			  <option value="Face Lateral Esquerda">Face Lateral Esquerda</option>
+			  <option value="Face Lateral Direita">Face Lateral Direita</option>
+			  <option value="Face Posterior">Face Posterior</option>
+			  <option value="Face Superior">Face Superior</option>
+			</select>
+		  </div>
+		  <div class="form-group col-md-4" ng-class="{'has-error': formpontop.sissegaplic.$invalid && !formpontop.sissegaplic.$pristine}">
+			<label class="control-label" for="sissegaplic">Sistemas de segurança aplicados *</label>
+			<select class="form-control" name="sistemaSeguranca" id="sistemaSeguranca" ng-model="$ctrl.pontoPerigo.sistemasegurancaId" ng-options="sistemaSeguranca.id as sistemaSeguranca.nome for sistemaSeguranca in $ctrl.sistemasSeguranca" required validate>
+			  <option value="">Selecione uma opção</option>
+			</select>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-6">
+			<label class="control-label" for="perigo">Perigo</label>
+			<div class="input-group">
+			  <select class="form-control" name="perigo" id="perigo" ng-model="$ctrl.perigoSelecionado" ng-options="perigo as perigo.nome for perigo in $ctrl.perigos | orderBy:'item'">
+				<option value="">Selecione uma opção</option>
+			  </select>
+			  <span class="input-group-btn">
+				<button type="button" class="btn" ng-class="{'btn-default':!$ctrl.perigoSelecionado, 'btn-success':$ctrl.perigoSelecionado}" ng-click="$ctrl.adicionaPerigo()" ng-disabled="!$ctrl.perigoSelecionado">
+				  <span class="glyphicon glyphicon-plus"></span>
+				</button>
+			  </span>
+			</div>
+		  </div>
+
+					<div class="form-group col-md-6">
+						<label class="control-label" for="risco">Risco</label>
+			<div class="input-group">
+						<select ng-model="$ctrl.riscoSelecionado" name="risco" id="risco" class="form-control" ng-options="risco as risco.nome for risco in $ctrl.riscos">
+							<option value="">Selecione uma opção</option>
+						</select>
+			  <span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-class="{'btn-default':!$ctrl.riscoSelecionado, 'btn-success':$ctrl.riscoSelecionado}" ng-click="$ctrl.adicionaRisco()" ng-disabled="!$ctrl.riscoSelecionado">
+				  <span class="glyphicon glyphicon-plus"></span>
+				</button>
+			  </span>
+			</div>
+
+					</div>
+		</div>
+		<div class="row">
+		  <div class="table-responsive col-md-6">
+		   <table class="table table-hover">
+			 <thead>
+			   <tr>
+				 <th>Perigo</th>
+				 <th>Ação</th>
+			   </tr>
+			 </thead>
+			 <tbody>
+			   <tr ng-repeat="perigo in $ctrl.pontoPerigo.Perigos | orderBy:'id'">
+				 <td>{{perigo.nome}}</td>
+				 <td class="action">
+				   <button type="button" ng-click="$ctrl.removePerigo(perigo)" class="btn btn-danger btn-xs" title="Excluir">
+					 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+				   </button>
+				 </td>
+			   </tr>
+			 </tbody>
+		   </table>
+		   </div>
+		   <div class="table-responsive col-md-6">
+			<table class="table table-hover">
+			  <thead>
+				<tr>
+				  <th>Risco</th>
+				  <th>Ação</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr ng-repeat="risco in $ctrl.pontoPerigo.Riscos | orderBy:'id'">
+				  <td>{{risco.nome}}</td>
+				  <td class="action">
+					<button type="button" ng-click="$ctrl.removeRisco(risco)" class="btn btn-danger btn-xs" title="Excluir">
+					  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</button>
+				  </td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-4">
+			<label for="NBR12153">Opção</label>
+			<div class="radio">
+			  <label class="control-label" >
+				<input class="form-check-input" type="radio" name="NBR14153"
+				ng-model="$ctrl.pontoPerigo.NBR14153" ng-value="true" >
+				<!-- ng-change="$ctrl.statusNBR(true)"> -->
+				NBR 14153
+			  </label>
+			</div>
+			<div class="radio">
+			  <label class="control-label" >
+				<input class="form-check-input" type="radio" name="NBR14153"
+				ng-model="$ctrl.pontoPerigo.NBR14153" ng-value="false" >
+				<!-- ng-change="$ctrl.statusNBR(false)"> -->
+				Não se aplica
+			  </label>
+			</div>
+		  </div>
+		</div>
+
+		<div class="row ng-hide" ng-show="$ctrl.pontoPerigo.NBR14153 == true">
+					<div class="form-group col-md-3" ng-class="{'has-error': formpontop.severidade.$invalid && !formpontop.severidade.$pristine}">
+						<label class="control-label" for="severidade">Severidade do Ferimento *</label>
+						<select class="form-control" name="severidade" ng-model="$ctrl.pontoPerigo.severidade" validate ng-required="$ctrl.pontoPerigo.NBR14153 == true" >
+							<option value="">Selecione uma opção</option>
+							<option value="S1">S1 - Ferimento Leve</option>
+							<option value="S2">S2 - Ferimento Sério</option>
+						</select>
+					</div>
+					<div class="form-group col-md-5 ng-hide" ng-show="$ctrl.pontoPerigo.severidade=='S2'" ng-class="{'has-error': $ctrl.pontoPerigo.severidade=='S2' && formpontop.frequencia.$invalid && !formpontop.frequencia.$pristine}">
+						<label class="control-label" for="frequencia">Frequência e/ou tempo de exposição ao perigo *</label>
+						<select class="form-control" name="frequencia" ng-model="$ctrl.pontoPerigo.frequencia" validate ng-required="$ctrl.pontoPerigo.severidade=='S2'">
+							<option value="">Selecione uma opção</option>
+							<option value="F1">F1 - Raro a relativamente frequente e/ou baixo tempo de exposição</option>
+							<option value="F2">F2 - Frequente a contínuo e/ou tempo de exposição longo</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4 ng-hide" ng-show="$ctrl.pontoPerigo.severidade=='S2'" ng-class="{'has-error': $ctrl.pontoPerigo.severidade=='S2' && formpontop.possibilidade.$invalid && !formpontop.possibilidade.$pristine}">
+						<label class="control-label" for="possibilidade">Possibilidade de evitar o perigo *</label>
+						<select class="form-control" name="possibilidade" id="possibilidade" ng-model="$ctrl.pontoPerigo.possibilidade" validate ng-required="$ctrl.pontoPerigo.severidade=='S2'">
+							<option value="">Selecione uma opção</option>
+							<option value="P1">P1 - Possível sob condições específicas</option>
+							<option value="P2">P2 - Quase nunca possível</option>
+						</select>
+					</div>
+				</div>
+		<div class="row">
+		  <div class="col-md-6">
+			<h4>HRN - Hazard Rating Number</h4>
+		  </div>
+		  <div class="col-md-6">
+			<p class="pull-right h4">HRN: {{$ctrl.pontoPerigo.nivelRisco>=0?$ctrl.pontoPerigo.nivelRisco:" "}}</p>
+		  </div>
+		</div>
+		<div class="row">
+					<div class="form-group col-md-6" ng-class="{'has-error': formpontop.pe.$invalid && !formpontop.pe.$pristine}">
+						<label class="control-label" for="pe">Probabilidade de Exposição * {{$ctrl.pontoPerigo.pe}}</label>
+						<select class="form-control" name="pe" id="pe" ng-model="$ctrl.pontoPerigo.pe"
+			  ng-change="$ctrl.calculaHRN()" required validate>
+							<option value="">Selecione uma opção</option>
+							<option value="0">Quase impossível</option>
+							<option value="1">Improvável</option>
+							<option value="2">Possível</option>
+							<option value="5">Alguma chance</option>
+							<option value="8">Provável</option>
+							<option value="10">Muito provável</option>
+							<option value="15">Certo</option>
+						</select>
+					</div>
+					<div class="form-group col-md-6" ng-class="{'has-error': formpontop.fe.$invalid && !formpontop.fe.$pristine}">
+						<label class="control-label" for="fe">Frequência de Exposição * {{$ctrl.pontoPerigo.fe}}</label>
+						<select class="form-control" name="fe" id="fe" ng-model="$ctrl.pontoPerigo.fe"
+			 ng-change="$ctrl.calculaHRN()" required validate>
+							<option value="">Selecione uma opção</option>
+							<option value="0.1">Raramente</option>
+							<option value="0.2">Anualmente</option>
+							<option value="1">Mensalmente</option>
+							<option value="1.5">Semanalmente</option>
+							<option value="2.5">Diariamente</option>
+							<option value="4">Em termos de hora</option>
+							<option value="5">Constantemente</option>
+						</select>
+					</div>
+					<div class="form-group col-md-6" ng-class="{'has-error': formpontop.pmp.$invalid && !formpontop.pmp.$pristine}">
+						<label class="control-label" for="pmp">Probabilidade Máxima de Perda * {{$ctrl.pontoPerigo.pmp}}</label>
+						<select class="form-control" name="pmp" id="pmp" ng-model="$ctrl.pontoPerigo.pmp"
+			 ng-change="$ctrl.calculaHRN()" required validate>
+							<option value="">Selecione uma opção</option>
+							<option value="0.1">Arranhão / Contusão leve</option>
+							<option value="0.5">Dilaceração / Doenças moderadas</option>
+							<option value="1">Fratura / Enfermidade leve (temporária)</option>
+							<option value="2">Fratura / Enfermidade grave (permanente)</option>
+							<option value="4">Perda de 1 membro / olho ou doença séria (temporária)</option>
+							<option value="8">Perda de 2 membros / olhos ou doença séria (permanente)</option>
+							<option value="15">Fatalidade</option>
+						</select>
+					</div>
+					<div class="form-group col-md-6" ng-class="{'has-error': formpontop.np.$invalid && !formpontop.np.$pristine}">
+						<label class="control-label" for="np">Numero de pessoas expostas ao risco * {{$ctrl.pontoPerigo.np}}</label>
+						<select class="form-control" name="np"  id="np"ng-model="$ctrl.pontoPerigo.np"
+			ng-change="$ctrl.calculaHRN()" required validate>
+							<option value="">Selecione uma opção</option>
+							<option value="1">1 - 2 pessoas</option>
+							<option value="2">3 - 7 pessoas</option
+							<option value="4">8 - 15 pessoas</option>
+							<option value="8">16 - 50 pessoas</option>
+							<option value="12">Mais de 50 pessoas</option>
+						</select>
+					</div>
+				</div>
+		<div class="row">
+					<div class="col-md-12">
+						<h4>Parecer Técnico</h4>
+					</div>
+				</div>
+		<div class="row">
+		  <div class="col-md-12">
+			<div class="form-group" ng-class="{'has-error': formpontop.analiseProtecao.$invalid && !formpontop.analiseProtecao.$pristine}">
+				<label class="control-label" for="analiseProtecao">Análise da Proteção *</label>
+				<textarea class="form-control" rows="4" cols="20" name="analiseProtecao" id="analiseProtecao"
+				 ng-model="$ctrl.pontoPerigo.analiseProtecao" validate required></textarea>
+			  </div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-12">
+			  <label class="control-label" for="normas">Item da Norma</label>
+			  <div class="input-group">
+			  <select class="form-control" name="normas" id="normas"  ng-model="$ctrl.normaSelecionada" ng-options="norma as norma.item +'-'+norma.norma | limitTo: 120 for norma in $ctrl.normas">
+				<option size='20'  value="">Selecione uma opção</option>
+			  </select>
+			  <span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-class="{'btn-default':!$ctrl.normaSelecionada, 'btn-success':$ctrl.normaSelecionada}" ng-click="$ctrl.adicionaNorma()" ng-disable="!$ctrl.normaSelecionada">
+				  <span class="glyphicon glyphicon-plus"></span>
+				</button>
+			  </span>
+			</div>
+			<div class="table-responsive col-md-12">
+			  <table class="table table-hover">
+				<thead>
+				  <tr>
+					<th>Item</th>
+					<th>Norma</th>
+					<th>Ação</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="norma in $ctrl.pontoPerigo.normas | orderBy:'id'">
+					<td>{{norma.item}}</td>
+					<td>{{norma.norma}}</td>
+					<td class="action">
+					  <button type="button" ng-click="$ctrl.removeItem(norma)" class="btn btn-danger btn-xs" title="Excluir">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					  </button>
+					</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-12">
+			<div class="form-group" ng-class="{'has-error': formpontop.indicacaoSolucao.$invalid && !formpontop.indicacaoSolucao.$pristine}">
+				<label class="control-label" for="indicacaoSolucao">Indicação da Solução *</label>
+				<textarea class="form-control" rows="4" cols="20" name="indicacaoSolucao" id="indicacaoSolucao"
+				 ng-model="$ctrl.pontoPerigo.indicacaoSolucao" validate required></textarea>
+			  </div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="form-group col-md-4">
+			<img ng-src="{{$ctrl.pontoPerigo.fotopp01.show}}" class="img-responsive">
+			<label class="control-label" for="fotopp01">Foto Ponto Perigo</label>
+			<div class="input-group">
+			  <input file-input="fotopp01" type="file" name="fotopp01" id="fotopp01" ng-disabled="selFotoPP01" class="form-control" >
+			  <span class="input-group-btn">
+				<button ng-click="$ctrl.upload('fotopp01')" type="button" ng-disabled="btnFotoPP01"  class="btn btn-primary">
+				  <i class="glyphicon glyphicon-upload"></i>
+				  <span>Upload</span>
+				</button>
+			  </span>
+			</div>
+		  </div>
+		  <!--
+		  <div class="form-group col-md-4">
+			<img ng-src="{{$ctrl.pontoPerigo.fotopp02.show}}" class="img-responsive">
+			<label class="control-label" for="fotopp02">Foto Ponto Perigo 02</label>
+			<div class="input-group">
+			  <input file-input="fotopp02" type="file" name="fotopp02" id="fotopp02" ng-disabled="selFotoPP02" class="form-control" >
+			  <span class="input-group-btn">
+				<button ng-click="$ctrl.upload('fotopp02')" type="button" ng-disabled="btnFotoPP02"  class="btn btn-primary">
+				  <i class="glyphicon glyphicon-upload"></i>
+				  <span>Upload</span>
+				</button>
+			  </span>
+			</div>
+		  </div>
+		  <div class="form-group col-md-4">
+			<img ng-src="{{$ctrl.pontoPerigo.fotopp03.show}}" class="img-responsive">
+			<label class="control-label" for="fotopp03">Foto Ponto Perigo 03</label>
+			<div class="input-group">
+			  <input file-input="fotopp03" type="file" name="fotopp03" id="fotopp03" ng-disabled="selFotoPP03" class="form-control" >
+			  <span class="input-group-btn">
+				<button ng-click="$ctrl.upload('fotopp03')" type="button" ng-disabled="btnFotoPP03"  class="btn btn-primary">
+				  <i class="glyphicon glyphicon-upload"></i>
+				  <span>Upload</span>
+				</button>
+			  </span>
+			</div>
+		  </div>
+		  -->
+		</form>
+		</div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-primary" ng-click="$ctrl.salvarPontoPerigo()" ng-disabled="!formpontop.$valid">OK</button>
+		<button typpe="button" class="btn btn-warning" ng-click="$ctrl.cancelarPontoPerigo()" data-dismiss="modal">Cancelar</button>
+	  </div>
+	  <!--<pre>{{formpontop | json}}</pre>-->
+  </div>
+</div>
+</script>
+<div class="modal-parent"></div>

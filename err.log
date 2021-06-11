@@ -1,0 +1,115 @@
+12.44
+{ SequelizeBaseError: ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+    at Query.formatError (/home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:159:14)
+    at Query._callback (/home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:49:21)
+    at Query.Sequence.end (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Query.ErrorPacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Query.js:90:8)
+    at Protocol._parsePacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/home/isi_nr12_user/nr12/node_modules/mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:551:20)
+  name: 'SequelizeForeignKeyConstraintError',
+  message: 'ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)',
+  parent: 
+   { Error: ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+       at Query.Sequence._packetToError (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+       at Query.ErrorPacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+       at Protocol._parsePacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+       at Parser.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Parser.js:76:12)
+       at Protocol.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/home/isi_nr12_user/nr12/node_modules/mysql/lib/Connection.js:103:28)
+       at emitOne (events.js:96:13)
+       at Socket.emit (events.js:188:7)
+       at readableAddChunk (_stream_readable.js:176:18)
+       at Socket.Readable.push (_stream_readable.js:134:10)
+       at TCP.onread (net.js:551:20)
+       --------------------
+       at Protocol._enqueue (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+       at Connection.query (/home/isi_nr12_user/nr12/node_modules/mysql/lib/Connection.js:208:25)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:40:21
+       at Promise._execute (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/debuggability.js:300:9)
+       at Promise._resolveFromExecutor (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:483:18)
+       at new Promise (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:79:10)
+       at Query.run (/home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/sequelize.js:849:20
+       at /home/isi_nr12_user/nr12/node_modules/retry-as-promised/index.js:40:21
+       at Promise._execute (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/debuggability.js:300:9)
+       at Promise._resolveFromExecutor (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:483:18)
+       at new Promise (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:79:10)
+       at retryAsPromised (/home/isi_nr12_user/nr12/node_modules/retry-as-promised/index.js:30:10)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/sequelize.js:848:12
+       at tryCatcher (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/util.js:16:23)
+       at Promise._settlePromiseFromHandler (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:512:31)
+     code: 'ER_ROW_IS_REFERENCED_2',
+     errno: 1451,
+     sqlMessage: 'Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)',
+     sqlState: '23000',
+     index: 0,
+     sql: 'DELETE FROM `risco` WHERE `id` = \'4\'' },
+  original: 
+   { Error: ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+       at Query.Sequence._packetToError (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+       at Query.ErrorPacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+       at Protocol._parsePacket (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+       at Parser.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Parser.js:76:12)
+       at Protocol.write (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/home/isi_nr12_user/nr12/node_modules/mysql/lib/Connection.js:103:28)
+       at emitOne (events.js:96:13)
+       at Socket.emit (events.js:188:7)
+       at readableAddChunk (_stream_readable.js:176:18)
+       at Socket.Readable.push (_stream_readable.js:134:10)
+       at TCP.onread (net.js:551:20)
+       --------------------
+       at Protocol._enqueue (/home/isi_nr12_user/nr12/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+       at Connection.query (/home/isi_nr12_user/nr12/node_modules/mysql/lib/Connection.js:208:25)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:40:21
+       at Promise._execute (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/debuggability.js:300:9)
+       at Promise._resolveFromExecutor (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:483:18)
+       at new Promise (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:79:10)
+       at Query.run (/home/isi_nr12_user/nr12/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/sequelize.js:849:20
+       at /home/isi_nr12_user/nr12/node_modules/retry-as-promised/index.js:40:21
+       at Promise._execute (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/debuggability.js:300:9)
+       at Promise._resolveFromExecutor (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:483:18)
+       at new Promise (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:79:10)
+       at retryAsPromised (/home/isi_nr12_user/nr12/node_modules/retry-as-promised/index.js:30:10)
+       at /home/isi_nr12_user/nr12/node_modules/sequelize/lib/sequelize.js:848:12
+       at tryCatcher (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/util.js:16:23)
+       at Promise._settlePromiseFromHandler (/home/isi_nr12_user/nr12/node_modules/bluebird/js/release/promise.js:512:31)
+     code: 'ER_ROW_IS_REFERENCED_2',
+     errno: 1451,
+     sqlMessage: 'Cannot delete or update a parent row: a foreign key constraint fails (`isi_nr12`.`perigorisco`, CONSTRAINT `fk_perigos_has_riscos_riscos1` FOREIGN KEY (`risco`) REFERENCES `risco` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)',
+     sqlState: '23000',
+     index: 0,
+     sql: 'DELETE FROM `risco` WHERE `id` = \'4\'' },
+  sql: 'DELETE FROM `risco` WHERE `id` = \'4\'',
+  fields: null,
+  table: undefined,
+  value: undefined,
+  index: 'id' }
+1.2.1.4
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EACCES 0.0.0.0:80
+    at Object.exports._errnoException (util.js:1022:11)
+    at exports._exceptionWithHostPort (util.js:1045:20)
+    at Server._listen2 (net.js:1249:19)
+    at listen (net.js:1298:10)
+    at Server.listen (net.js:1376:9)
+    at Object.<anonymous> (/home/isi_nr12_user/nr12/server.js:5:24)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.runMain (module.js:605:10)
+    at run (bootstrap_node.js:420:7)
+    at startup (bootstrap_node.js:139:9)
+    at bootstrap_node.js:535:3

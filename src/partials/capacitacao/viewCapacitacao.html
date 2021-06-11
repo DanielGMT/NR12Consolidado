@@ -1,0 +1,26 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h2 class="page-header">Capacitação</h2>
+	<div class="tab-content">
+		<div class="row">
+			<div class="col-md-12">
+				<p><strong>Capacitação</strong></p>
+				<p>{{controller.capacitacao.nome}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p><strong>Descrição</strong></p>
+				<textarea class="form-control" rows="12" name="descricao"
+				ng-model="controller.capacitacao.descricao" disabled="true"/>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<a ng-href="#/capacitacao/{{controller.capacitacao.id}}" class="btn btn-warning">Editar</a>
+				<button ng-click="controller.remove(controller.capacitacao)" class="btn btn-danger">Excluir</button>
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</div>
+</div>

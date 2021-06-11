@@ -1,0 +1,151 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Máquina</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<div class="form-group col-md-12" ng-class="{'has-error': form.cliente.$invalid && !form.cliente.$pristine}">
+				<label class="control-label" for="cliente">Empresa *</label>
+						<select class="form-control" name="cliente" ng-model="controller.maquina.clienteId"
+							ng-options="cliente.id as cliente.nome for cliente in controller.clientes" required validate>
+							<option value="">Selecione uma opção</option>
+						</select>
+					</div>
+				<br>
+			</div>
+		<div class="row">
+			<div class="form-group col-md-5" ng-class="{'has-error': form.nome.$invalid && !form.nome.$pristine}">
+				<label class="control-label" for=nome>Nome *</label>
+				<input type="text" class="form-control" name="nome"
+				ng-model="controller.maquina.nome" ng-minlength="3" ng-maxlength="45" validate required/>
+			</div>
+			<div class="form-group col-md-3" ng-class="{'has-error': form.genero.$invalid && !form.genero.$pristine}">
+				<label class="control-label" for="genero">Genero *</label>
+				<select class="form-control" name="genero"	ng-model="controller.maquina.genero" validate required>
+					<option value="">Selecione</option>
+					<option value="a">a</option>
+					<option value="e">e</option>
+					<option value="o">o</option>
+				</select>
+			</div>
+			<div class="form-group col-md-4" ng-class="{'has-error': form.tipomaquina.$invalid && !form.tipomaquina.$pristine}">
+				<label class="control-label" for="tipomaquina">Tipo Máquina *</label>
+				<select class="form-control" name="tipomaquina"	ng-model="controller.maquina.tipoMaquinaId"
+					ng-options="tipoMaquina.id as tipoMaquina.nome for tipoMaquina in controller.tiposMaquinas" validate required>
+					<option value="">Selecione uma opção</option>
+				</select>
+			</div>
+			
+		</div>
+		<div class="row">
+			<div class="form-group col-md-3" ng-class="{'has-error': form.modelo.$invalid && !form.modelo.$pristine}">
+				<label class="control-label" for="modelo">Modelo</label>
+				<input type="text" class="form-control" name="modelo"
+				ng-model="controller.maquina.modelo" ng-maxlength="45" validate />
+			</div>
+			<div class="form-group col-md-3" ng-class="{'has-error': form.numeroserie.$invalid && !form.numeroserie.$pristine}">
+				<label class="control-label" for="numeroserie">Número de Série</label>
+				<input type="text" class="form-control" name="numeroserie"
+				ng-model="controller.maquina.numeroSerie" ng-maxlength="45" validate />
+			</div>
+			<div class="form-group col-md-3" ng-class="{'has-error': form.numeropatrimonio.$invalid && !form.numeropatrimonio.$pristine}">
+				<label class="control-label" for="maquinaNumeroPatrimonio">Número de Patrimônio</label>
+				<input type="text" class="form-control" name="numeropatrimonio"
+				ng-model="controller.maquina.numeroPatrimonio" ng-maxlength="45" validate />
+			</div>
+			<div class="form-group col-md-3" ng-class="{'has-error': form.capacidade.$invalid && !form.capacidade.$pristine}">
+				<label class="control-label" for="capacidade">Capacidade</label>
+				<input type="text" class="form-control" name="capacidade"
+				ng-model="controller.maquina.capacidade" ng-maxlength="45" validate />
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-4" ng-class="{'has-error': form.setor.$invalid && !form.setor.$pristine}">
+				<label class="control-label" for="setor">Setor</label>
+				<input type="text" class="form-control" name="setor"
+				ng-model="controller.maquina.setor" ng-maxlength="45" validate />
+			</div>
+			<div class="form-group col-md-4" ng-class="{'has-error': form.fabricante.$invalid && !form.fabricante.$pristine}">
+				<label class="control-label" for="fabricante">Fabricante</label>
+				<input type="text" class="form-control" name="fabricante"
+				ng-model="controller.maquina.fabricante" ng-maxlength="45"  validate />
+			</div>
+			<div class="form-group col-md-4"ng-class="{'has-error': form.ano.$invalid && !form.ano.$pristine}" >
+				<label class="control-label" for="ano">Ano</label>
+				<input type="number" class="form-control" name="ano"
+				ng-model="controller.maquina.ano" ng-min="1900" ng-max="2100" validate />
+			</div>
+		</div>
+
+
+		<!-- Fotos -->
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="thumbnail">
+					<img style="height:250px" class="img-responsive" ng-src="{{controller.maquina.fotofront.show}}" alt="Foto Frontal">
+				</div>
+				<label class="control-label" for="fotofront">Foto Frontal</label>
+				<div class="input-group">
+					<input file-input="fotofront" type="file" name="fotofront" id="fotofront"ng-disabled="selFotoFront" class="form-control" >
+					<span class="input-group-btn">
+						<button ng-click="controller.upload('fotofront')" type="button" ng-disabled="btnFotoFront"  class="btn btn-primary">
+							<i class="glyphicon glyphicon-upload"></i>
+							<span>Upload</span>
+						</button>
+					</span>
+				</div>		
+			</div>
+			<div class="form-group col-md-6">
+				<div class="thumbnail">
+					<img style="height:250px" class="img-responsive" ng-src="{{controller.maquina.fotole.show}}" alt="Foto Lateral Esquerda" >
+				</div>
+				<label class="control-label" for="fotole">Foto Lateral Esquerda</label>
+				<div class="input-group">
+					<input file-input="fotole" type="file" name="fotole" id="fotole" ng-disabled="selFotoLe" class="form-control" >
+					<span class="input-group-btn">
+						<button ng-click="controller.upload('fotole')" type="button" ng-disabled="btnFotoLe"  class="btn btn-primary">
+							<i class="glyphicon glyphicon-upload"></i>
+							<span>Upload</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="thumbnail">
+					<img style="height:250px" class="img-responsive" ng-src="{{controller.maquina.fotold.show}}" alt="Foto Lateral Direita">
+				</div>
+				<label class="control-label" for="fotold">Foto Lateral Direita</label>
+				<div class="input-group">
+					<input file-input="fotold" type="file" name="fotold" id="fotold" ng-disabled="selFotoLd" class="form-control" >
+					<span class="input-group-btn">
+						<button ng-click="controller.upload('fotold')" type="button" ng-disabled="btnFotoLd"  class="btn btn-primary">
+							<i class="glyphicon glyphicon-upload"></i>
+							<span>Upload</span>
+						</button>
+					</span>
+				</div>
+			</div>
+			<div class="form-group col-md-6">
+				<div class="thumbnail">
+					<img style="height:250px" class="img-responsive" ng-src="{{controller.maquina.fotopost.show}}" alt="Foto Posterior">
+				</div>
+				<label class="control-label" for="fotopost">Foto Posterior</label>
+				<div class="input-group">
+					<input file-input="fotopost" type="file" name="fotopost" id="fotopost" ng-disabled="selFotoPost" class="form-control" >
+					<span class="input-group-btn">
+						<button ng-click="controller.upload('fotopost')" type="button" ng-disabled="btnFotoPost"  class="btn btn-primary">Upload</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12 text-center">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

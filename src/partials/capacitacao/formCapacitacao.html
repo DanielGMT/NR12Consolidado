@@ -1,0 +1,33 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h1 class="page-header">Capacitação</h1>
+	<form ng-submit="controller.salva()" name="form" novalidate>
+		<div class="row">
+			<!-- Capacitacao -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.nome.$invalid && !form.nome.$pristine}">
+				<label class="control-label" for="nome">Nome *</label>
+				<input type="text" class="form-control" name="nome" id="nome" autocomplete="off"
+				ng-model="controller.capacitacao.nome" 
+				ng-minlength="3" ng-maxlength="45" maxlength="45" required validate/>
+
+			</div>
+		</div>
+		<div class="row">
+			<!-- Descrição -->
+			<div class="form-group col-md-12" ng-class="{'has-error': form.descricao.$invalid && !form.descricao.$pristine}">
+				<label class="control-label" for="descricao">Descrição *</label>
+				<textarea class="form-control" rows="8" cols="5" name="descricao" id="descricao"
+					ng-model="controller.capacitacao.descricao" ng-minlength="3" required validate>
+				</textarea>
+		</div>
+		</div>
+		<hr />
+		<div id="actions" class="row">
+			<div class="col-md-12">
+				<!-- Botao Submit -->
+				<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar</button>
+				<!-- Botao Voltar -->
+				<a back class="btn btn-default">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

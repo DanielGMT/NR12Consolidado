@@ -1,0 +1,90 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+	background-color: #f5f8fa;
+}
+
+.uppercase {
+	text-transform: uppercase
+}
+
+p {
+	white-space: pre-wrap;
+}
+
+.navbar, .dropdown-menu, .navbar-inverse{
+	background-color: #115c35;
+	background-image: linear-gradient(to bottom, #115c35 0%, #115c35 100%);
+	border-color: #1f9559;
+}
+
+.navbar-inverse .navbar-toggle{
+	border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #1f9559;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a{
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus{
+	background-color: #1f9559;
+}
+
+.navbar li>a, 
+.navbar-inverse .navbar-nav > li > a{
+	color: #fff;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
+	background-color: #1f9559;
+	border: none;
+	background-image: linear-gradient(to bottom, #1f9559 0%, #1f9559 100%)
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a {
+	background-image: linear-gradient(to bottom, #1f9559 0%, #1f9559 100%);
+}
+
+.navbar li>a:hover, .navbar li>a:focus,
+.navbar-inverse .navbar li>a:hover, .navbar-inverse .navbar li>a:focus{
+	background: #1f9559;
+}
+
+
+.quadro{
+	background-color: #fff;
+	border-color: #d3e0e9;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	border: 1px solid transparent;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+textarea {
+	resize: none;
+}
+
+.table th:last-child,
+.table td:last-child{
+	width: 190px;
+}
+
+.per li{
+	display: inline;
+}
+
+.per ul{
+	margin-bottom: 0px;
+}
+
+.perigo {
+	padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    color: #337ab7;
+}

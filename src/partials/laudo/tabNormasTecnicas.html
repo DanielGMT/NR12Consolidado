@@ -1,0 +1,56 @@
+<div class="col-sm-8 col-sm-offset-2">
+	<h3>Normas Técnicas Aplicadas </h3>
+	<div class="row">
+		<div class="col-md-12">
+			<label class="control-label" for="">Norma Técnica</label>
+			<div class="input-group">
+				<select ng-model="controller.normaTecnicaSelec" name="normaTecnica"
+				 class="form-control"
+				 ng-options="normaTecnica as normaTecnica.nome for normaTecnica in controller.normasTecnicas track by normaTecnica.id" ng-change="controller.changeNorma()">
+				 <option value="">Selecione uma opção</option>
+				</select>
+				<span class="input-group-btn">
+					<button type="button" class="btn" ng-class="{'btn-default':!controller.normaTecnicaSelec, 'btn-success':controller.normaTecnicaSelec}" ng-click="controller.adicionaNormaTecnica()" ng-disabled="controller.btnIncluirNorma">
+						<span class=" glyphicon glyphicon-plus"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-responsive col-md-12">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Norma Técnica</th>
+						<th>Descrição</th>
+						<th class="actions">Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="norma in controller.laudo.normasTecnicas">
+						<td>
+							{{norma.nome}}
+						</td>
+						<td>
+							{{norma.descricao | limitTo: 50}}
+						</td>
+						<td class="actions">
+							<button ng-click="controller.removeNorma(norma)" class="btn btn-danger btn-xs" title="Excluir">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">
+							<p ng-show="controller.laudo.normasTecnicas.length">Normas técnicas cadastradas: {{controller.laudo.normasTecnicas.length}}</p>
+							<p class="text-info" ng-hide="controller.laudo.normasTecnicas.length">Não há normas técnicas cadastradas</p>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div>

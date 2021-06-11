@@ -1,0 +1,135 @@
+<script type="text/ng-template" id="modalDispositivo.html">
+	<div class="modal-header">
+		<button class="close" ng-click="$ctrl.cancelarDispositivo()">&times;</button>
+    <h3 class="modal-title" id="modal-title">Dispositivo</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<form name="formdisp" novalidate>
+			<div class="row">
+				<div class="form-group col-md-4" ng-class="{'has-error': formdisp.dispositivo.$invalid && !formdisp.dispositivo.$pristine}">
+					<label class="control-label" for="dispositivo">Dispositivo *</label>
+					<input type="text" class="form-control" name="dispositivo"
+					 id="dispositivo" ng-model="$ctrl.dispositivo.dispositivo" required validate/>
+				</div>
+				<div class="form-group col-md-4" ng-class="{'has-error': formdisp.face.$invalid && !formdisp.face.$pristine}">
+					<label class="control-label" for="face">Face *</label>
+					<select class="form-control" name="face" id="face" ng-model="$ctrl.dispositivo.face" required validate>
+						<option value="">Selecione uma opção</option>
+						<option value="Face Frontal">Face Frontal</option>
+						<option value="Face Lateral Esquerda">Face Lateral Esquerda</option>
+						<option value="Face Lateral Direita">Face Lateral Direita</option>
+						<option value="Face Posterior">Face Posterior</option>
+						<option value="Face Superior">Face Superior</option>
+					</select>
+				</div>
+				<div class="form-group col-md-4" ng-class="{'has-error': formdisp.tipoDispositivo.$invalid && !formdisp.tipoDispositivo.$pristine}">
+					<label class="control-label" for="tipodispositivo">Tipo Dispositivo *</label>
+					<select class="form-control" name="tipoDispositivo" id="tipodispositivo" ng-options="tipoDispositivo.id as tipoDispositivo.tipo for tipoDispositivo in $ctrl.tiposDispositivos" ng-model="$ctrl.dispositivo.tipoDispositivoId" ng-change="$ctrl.buscaPerguntas()" required validate>
+						<option value="">Selecione uma opção</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label class="control-label" for="respostas">Itens Avaliados</label>
+					<div class="radio row" ng-repeat="pergunta in $ctrl.dispositivo.perguntas">
+					<label class="col-xs-5 col-sm-4 control-label">{{pergunta.pergunta}}</label>
+					<label class="col-xs-1 col-sm-1 radio-inline" ng-repeat="resposta in pergunta.respostas | orderBy:'id'">
+						<input class="form-check-input" type="radio" name="resposta{{pergunta.id}}"
+						ng-value="resposta.id" ng-model="pergunta.RespostaDispositivo.respostaId" required/>
+						{{resposta.resposta}}
+					</label>
+					</div>
+					<p class="text-info" ng-hide="$ctrl.dispositivo.tipoDispositivoId">Selecione o tipo dispositivo.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4>Parecer Técnico</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12" ng-class="{'has-error': formdisp.analiseProtecao.$invalid && !formdisp.analiseProtecao.$pristine}">
+					<label class="control-label" for="analiseprotecao">Analise da Proteção *</label>
+					<textarea class="form-control" rows="4" cols="5" name="analiseProtecao" id="analiseprotecao"
+					ng-model="$ctrl.dispositivo.analiseProtecao" required validate></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label class="control-label">Item da Norma</label>
+					<div class="input-group">
+						<select class="form-control" name="norma" ng-model="$ctrl.normaSelecionada"
+						ng-options="norma as norma.item +' - '+norma.norma | limitTo: 120 for norma in $ctrl.normas | orderBy:'item'">
+							<option value="">Selecione uma opção</option>
+						</select>
+						<span class="input-group-btn">
+							<button type="button" class="btn" ng-class="{'btn-default':!$ctrl.normaSelecionada, 'btn-success':$ctrl.normaSelecionada}" ng-click="$ctrl.adicionaNormaReg()" ng-disabled="!$ctrl.normaSelecionada">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</span>
+					</div>
+				</div>
+				<div class="table-responsive col-md-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Norma</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="norma in $ctrl.dispositivo.normas | orderBy:'id'">
+								<td>{{norma.item}}</td>
+								<td>{{norma.norma}}</td>
+								<td class="actions">
+									<button type="button" ng-click="$ctrl.removeNormaReg(norma)"  class="btn btn-danger btn-xs" title="Excluir">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3">
+									<p ng-show="$ctrl.dispositivo.normas.length">Normas cadastradas: {{$ctrl.dispositivo.normas.length}}</p>
+									<p class="text-info" ng-hide="$ctrl.dispositivo.normas.length">Não há normas cadastradas.</p>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-12" ng-class="{'has-error': formdisp.indicacaoSolucao.$invalid && !formdisp.indicacaoSolucao.$pristine}">
+					<label class="control-label" for="indicacaosolucao">Indicação da Solução *</label>
+					<textarea class="form-control" rows="4" cols="5" name="indicacaoSolucao" id="indicacaosolucao"
+					ng-model="$ctrl.dispositivo.indicacaoSolucao" required validate></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<img ng-src="{{$ctrl.dispositivo.imagem.show}}" class="img-responsive">
+					<label class="control-label" for="imagem">Imagem</label>
+					<div class="input-group">
+						<input file-input="imagem" type="file" name="imagem" id="imagem" ng-disabled="selImagem" class="form-control" >
+						<span class="input-group-btn">
+							<button ng-click="$ctrl.upload('imagem')" type="button" ng-disabled="btnImagem"  class="btn btn-primary start">
+								<i class="glyphicon glyphicon-upload"></i>
+								<span>Upload</span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" ng-click="$ctrl.salvarDispositivo()" ng-disabled="!formdisp.$valid">OK</button>
+		<button type="button" class="btn btn-default" ng-click="$ctrl.cancelarDispositivo()">Cancelar</button>
+	</div>
+	<!--<pre>{{$ctrl.dispositivo | json}}</pre>-->
+	<!--<pre>{{formdisp | json}}</pre>-->
+</script>
+<div class="modal-parent"></div>

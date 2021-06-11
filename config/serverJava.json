@@ -1,0 +1,29 @@
+{
+  "development": {
+    "host": "127.0.0.1",
+    "port": "8080",
+    "url": "http://127.0.0.1:8080",
+    "urlRelatorio": "http://127.0.0.1:8080/NR12/rest/relatorio/gerar/"
+  },
+  "test": {
+    "host": "127.0.0.1",
+    "port": "8080",
+    "url": "http://127.0.0.1:8080",
+    "urlRelatorio": "http://127.0.0.1:8080/NR12/rest/relatorio/gerar/"
+  },
+  "production1": {
+    "host": "10.3.79.235",
+    "port": "8081",
+    "url": "http://10.3.79.235:8081",
+    "urlRelatorio": "http://127.0.0.1:8080/NR12/rest/relatorio/gerar/"
+  },
+  "production": {
+    "host": "10.3.79.235",
+    "port": "8081",
+    "url": "http://10.3.79.235:8081",
+    "urlRelatorio": "http://10.3.79.235:8081/NR12/rest/relatorio/gerar/"
+  }
+}
+
+
+

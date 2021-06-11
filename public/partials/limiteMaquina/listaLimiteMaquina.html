@@ -1,0 +1,60 @@
+<div id="top" class="row">
+	<div class="col-xs-12 col-md-3">
+		<h2>Limites de Máquinas</h2>
+	</div>
+	<div class="col-xs-9 col-md-6">
+		<div class="input-group h2">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-search"></span>
+			</span>
+			<input class="form-control" type="text" placeholder="Pesquisar" ng-model="filtro" />
+		</div>
+	</div>
+	<div class="col-xs-3 col-md-3">
+		<a ng-href="#/limiteMaquina" class="btn btn-primary pull-right h2">Novo</a>
+	</div>
+</div><!-- /#TOP -->
+
+<div id="list" class="row">
+	<div class="table-responsive col-md-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Título</th>
+					<th class="actions">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="limiteMaquina in controller.limitesMaquinas | filter:filtro"><!--limiteMaquina(Objeto) in limitesMaquinas(Lista/array)-->
+					<td>
+						<a ng-href="#/limiteMaquina/view/{{limiteMaquina.id}}">{{limiteMaquina.nome}}</a>
+					</td>
+					<td class="actions">
+						<a ng-href="#/limiteMaquina/view/{{limiteMaquina.id}}" class="btn btn-success btn-xs" title="Visualizar">
+							<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+						</a>
+						<a ng-href="#/limiteMaquina/{{limiteMaquina.id}}" class="btn btn-warning btn-xs" title="Editar">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						</a>
+						<button ng-click="controller.remove(limiteMaquina)" class="btn btn-danger btn-xs" title="Excluir">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3">
+						<p ng-show="controller.limitesMaquinas.length">limites de máquinas cadastrados: {{controller.limitesMaquinas.length}}</p>
+						<p class="text-info" ng-hide="controller.limitesMaquinas.length">Não há limites de máquinas cadastrados</p>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div> <!-- /#list -->
+<div id="botton" class="row">
+	<div class="col-md-12">
+		<!-- Paginação -->
+	</div>
+</div>

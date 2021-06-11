@@ -1,0 +1,30 @@
+<!--
+
+
+****** Movido para o arquino formLaudo.html ******
+
+
+<div class="col-sm-8 col-sm-offset-2">
+	<h3>Limites da Máquina</h3>
+	<div class="row">
+		<div class="form-group col-md-12" ng-class="{'has-error': form.limitesMaquina.$invalid && !form.limitesMaquina.$pristine}">
+			<label class="control-label" for="limitesMaquina">Descrição *</label>
+			<textarea class="form-control" rows="8" cols="5" name="limitesMaquina" id="limitesMaquina" ng-model="controller.laudo.limitesMaquina" ng-minlength="3" required validate></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<img class="img-responsive" ng-src="{{controller.laudo.limitesMaquina}}">
+		</div>	
+		<div class="form-group col-md-6">
+			<label class="control-label" for="imagem">Limites da Maquina</label>
+			<input file-input="imagem" type="file" name="imagem" id="imagem" ng-disabled="selImagem" class="form-control">
+			<button ng-click="controller.upload('imagem')" type="button" ng-disabled="btnImagem" class="btn btn-primary">Upload</button>
+		</div>
+	</div>
+	<pre>{{controller.limitesMaquina | json}}</pre>
+</div>
+
+
+
+-->>

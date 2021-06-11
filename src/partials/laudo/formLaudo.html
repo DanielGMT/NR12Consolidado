@@ -1,0 +1,73 @@
+<h2 class="page-header">Cadastro de Laudo</h2>
+<ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" data-target="#tabDados">Dados do Laudo</a></li>
+	<li><a data-toggle="tab" data-target="#tabCliente">Cliente</a></li>
+	<li><a data-toggle="tab" data-target="#tabIntroducao">Limites da Máquina</a></li>
+	<li><a data-toggle="tab" data-target="#tabPerigos">Ponto de Perigo</a></li>
+	<li><a data-toggle="tab" data-target="#tabDispositivos">Dispositivos</a></li>
+	<li><a data-toggle="tab" data-target="#tabNormasTecnicas">Normas Técnicas</a></li>
+</ul>
+<form ng-submit="controller.salva()" name="form" novalidate>
+	<div class="tab-content row">
+		<div id="tabDados" class="tab-pane fade in active" ng-include="'partials/laudo/tabDados.html'">
+		</div>
+		<div id="tabCliente" class="col-sm-12 tab-pane fade" ng-include="'partials/laudo/tabEmpresa.html'">
+		</div>
+		<div id="tabIntroducao" class="tab-pane fade">
+			<div class="col-sm-8 col-sm-offset-2">
+				<h3>Limites da Máquina</h3>
+				<div class="row">
+				<div class="form-group col-md-12" ng-class="{'has-error': form.limitesMaquina.$invalid && !form.limitesMaquina.$pristine}">
+					<label class="control-label" for="limitesMaquina">Limites cadastrados</label>
+					<select class="form-control" name="limitesMaquina"	ng-model="controller.maquina.limiteMaquinaId"
+						ng-options="limiteMaquina.id as limiteMaquina.nome for limiteMaquina in controller.limitesMaquinas" validate required>
+						<option value="">Selecione uma opção</option>
+					</select>
+				</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12" ng-class="{'has-error': form.limitesMaquina.$invalid && !form.limitesMaquina.$pristine}">
+						<label class="control-label" for="limitesMaquina">Descrição *</label>
+						<textarea class="form-control" rows="8" cols="5" name="limitesMaquina" id="limitesMaquina" ng-model="controller.laudo.limitesMaquina" ng-minlength="3" required validate></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<img class="img-responsive"  ng-src="{{controller.laudo.imagem.show}}">
+						<label class="control-label" for="imagemLimite">Limites da Maquina</label>
+						<div class="input-group">
+							<input file-input="imagem" type="file" name="imagem" id="imagem" class="form-control">
+							<span class="input-group-btn">
+								<button ng-click="controller.upload('imagem')" type="button" class="btn btn-primary start" ng-disabled="btnImagem">
+									<i class="glyphicon glyphicon-upload"></i>
+									<span>Upload</span>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="tabPerigos" class="col-sm-12 tab-pane fade" ng-include="'partials/laudo/tabPerigos.html'">
+		</div>
+		<div id="tabDispositivos" class="col-sm-12 tab-pane fade" ng-include="'partials/laudo/tabDispositivos.html'">
+		</div>
+		<div id="tabNormasTecnicas" class="tab-pane fade" ng-include="'partials/laudo/tabNormasTecnicas.html'">
+		</div>
+	</div>
+	<hr />
+	<div>
+	</div>
+	<div id="actions" class="row">
+		<div class="col-md-12 text-center">
+			<!-- Botao Submit -->
+			<button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar Laudo</button>
+			<!-- <button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Salvar Laudo</button> -->
+			<!-- Botao Voltar -->
+			<a back class="btn btn-default">Voltar</a>
+		</div>
+	</div>
+	<!-- <pre>{{controller.laudo | json}}</pre> -->
+</form>
+<div ng-include="'partials/laudo/formDispositivo.html'" class="modal-demo"></div>
+<div ng-include="'partials/laudo/perigosModal.html'" class="modal-demo"></div>
